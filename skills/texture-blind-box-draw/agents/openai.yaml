@@ -1,6 +1,6 @@
 interface:
   display_name: "Texture Blind Box Draw"
   short_description: "把实拍图改成局部盲盒简笔涂鸦效果，保留原始画面"
-  default_prompt: "Use $texture-blind-box-draw to add localized blind-box doodles to this real photo while preserving the original scene."
+  default_prompt: "Use $texture-blind-box-draw to discover one hidden micro-event in this real photo and add localized blind-box doodles while preserving the original scene."
 policy:
   allow_implicit_invocation: true

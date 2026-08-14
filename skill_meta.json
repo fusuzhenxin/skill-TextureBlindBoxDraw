@@ -1,9 +1,9 @@
 {
-  "skill_id": "TextureBlindBoxDraw_v1.0",
+  "skill_id": "TextureBlindBoxDraw_v1.1",
   "skill_name": "纹理顺势盲盒创意绘画",
-  "version": "1.0",
+  "version": "1.1",
   "author": "Custom",
-  "description": "接收实拍照片，复用原图裂缝、物体轮廓纹理做局部简笔涂鸦增量创作，原图保留≥70%，仅做加法，禁止全图重绘插画，实现盲盒趣味街头创意效果",
+  "description": "接收实拍照片，从裂缝、阴影、反光、污渍、物体轮廓和自然纹理中发现一个隐藏微型事件，做局部简笔涂鸦增量创作，原图保留≥70%，仅做加法，禁止全图重绘插画",
   "type": "image_augment",
   "dependence": ["image_understand", "local_inpaint"],
   "entry_file": "skills/texture-blind-box-draw/SKILL.md",

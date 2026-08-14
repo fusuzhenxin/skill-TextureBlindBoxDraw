@@ -40,6 +40,26 @@
           "maximum": 5,
           "description": "强制强度档位，null为自动使用默认2档。",
           "default": null
+        },
+        "creative_theme": {
+          "type": "string",
+          "enum": [
+            "",
+            "healing-daily-life",
+            "urban-archaeology",
+            "micro-adventure",
+            "absurd-humor",
+            "mystery-discovery",
+            "hidden-fairy-tale",
+            "minimal-art"
+          ],
+          "description": "隐藏事件的创意主题，空字符串代表根据照片自动选择。",
+          "default": ""
+        },
+        "event_seed": {
+          "type": "string",
+          "description": "用户指定的隐藏事件、动作或剧情线索，可为空字符串。",
+          "default": ""
         }
       }
     }
