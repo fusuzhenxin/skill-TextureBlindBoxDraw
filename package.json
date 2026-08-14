@@ -1,0 +1,21 @@
+{
+  "name": "add-texture-blind-box-draw-skill",
+  "version": "1.0.0",
+  "description": "Install the texture-blind-box-draw Codex skill.",
+  "license": "UNLICENSED",
+  "private": false,
+  "bin": {
+    "add-texture-blind-box-draw-skill": "bin/install.js",
+    "texture-blind-box-draw-skill": "bin/install.js"
+  },
+  "files": [
+    "bin/install.js",
+    "skills/texture-blind-box-draw/**/*"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "pack:dry": "npm pack --dry-run"
+  }
+}
