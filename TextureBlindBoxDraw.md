@@ -1,4 +1,25 @@
 # Skill: 纹理顺势盲盒创意绘画 TextureBlindBoxDraw_v1.0
+
+## 安装
+
+本项目已经按 Agent Skills 标准提供 skill 入口。推送到 GitHub 后，使用下面的命令安装：
+
+```bash
+npx skills add https://github.com/fusuzhenxin/skill-TextureBlindBoxDraw --skill texture-blind-box-draw
+```
+
+只安装到 Codex 并全局使用：
+
+```bash
+npx skills add https://github.com/fusuzhenxin/skill-TextureBlindBoxDraw --skill texture-blind-box-draw --agent codex --global --yes
+```
+
+实际被 Agent 读取的标准文件是：
+
+```text
+skills/texture-blind-box-draw/SKILL.md
+```
+
 ## 元信息
 | 字段 | 值 |
 |------|----|
