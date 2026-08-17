@@ -1,6 +1,6 @@
 interface:
   display_name: "Texture Blind Box Draw"
   short_description: "把实拍照片变成一眼可见、有趣且充满惊喜转折的局部盲盒涂鸦"
-  default_prompt: "Use $texture-blind-box-draw to make this real photo visibly more surprising with one bold localized doodle event built from at least two native photo features."
+  default_prompt: "Use $texture-blind-box-draw to make this real photo visibly more surprising with one bold localized doodle event whose main actor, action, and prop remain clear at 512px without zooming."
 policy:
   allow_implicit_invocation: true

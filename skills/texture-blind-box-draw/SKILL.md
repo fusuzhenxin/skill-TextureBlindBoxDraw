@@ -15,6 +15,7 @@ Use image editing or local inpainting only after a source image exists. Do not g
 
 - Preserve at least 70% of the original photographic information, including composition, camera angle, lighting, grain, material, and core object shapes.
 - Create a visible creative transformation, not a timid annotation. At 512px wide, a viewer must notice the changed region within 1 second and understand the event or visual joke within about 3 seconds.
+- Make the added content readable without zooming. At 512px wide, the primary actor's silhouette, action, and key prop must be distinguishable, not merely detectable as a group of lines.
 - Preserve the photo globally and edit locally. Keep the actual linework sparse, but let the event's visual footprint occupy roughly 15-30% of the frame by using real objects and textures as part of the event.
 - Use black marker linework as the primary visual language. On a busy or dark surface, permit a narrow white separation edge or one source-sampled accent on a single small prop; keep accent fill below 3% of the frame.
 - Build one focal event plus 1-2 supporting clues. Keep them compositionally connected instead of scattering unrelated doodles.
@@ -25,6 +26,7 @@ Use image editing or local inpainting only after a source image exists. Do not g
 - Reject bare arrows, isolated stick figures, smiley faces, generic climbing routes, flags as the only payoff, and long ropes across empty space. These are annotations, not finished ideas.
 - Default to intensity 3, visibility 4, and surprise 4. Reduce them only when the user explicitly asks for subtlety.
 - For a 1024px image at visibility 4, make the primary event cluster about 180-320px on its longest side with a 5-8px main stroke. Scale proportionally for other sizes.
+- Do not satisfy event-cluster size with a long ladder, rope, arrow, trail, or oversized prop while the actors remain unreadably tiny.
 - Use [mode-prompts.json](references/mode-prompts.json) to compose edit prompts and [creative-hooks.json](references/creative-hooks.json) to avoid repeated ideas.
 
 ## Surprise Engine
@@ -66,6 +68,9 @@ Target a semantic transformation: the first glance notices the edit, while the s
    - Level 3: readable, with a 130-220px main cluster at 1024px.
    - Level 4: obvious but local, with a 180-320px main cluster at 1024px.
    - Level 5: bold, with a 260-380px main cluster; require explicit confirmation.
+   - Size the primary actor adaptively by the image's short edge: about 7-11% on clean backgrounds, 10-15% on normal backgrounds, and 14-20% on busy or high-contrast backgrounds.
+   - Size supporting actors at about 60-80% of the primary actor. Treat anything below 6% as a reveal detail only, never the carrier of the main event.
+   - Permit smaller actors when a large real object carries the scene, such as a boat or iceberg, only if the action remains understandable at 512px.
 7. Use intensity level 3 by default:
    - Level 1: under 8% visual footprint, one restrained detail.
    - Level 2: 8-15% visual footprint, one simple event.
@@ -81,7 +86,7 @@ Target a semantic transformation: the first glance notices the edit, while the s
 Score each category from 0-2. Require at least 8/10 and no zero:
 
 - **Source preservation**: the result remains recognizably the same photograph.
-- **Visible difference**: the edit is immediately noticeable at 512px.
+- **Visible difference**: the edit is immediately noticeable and its primary action is understandable at 512px without zooming.
 - **Texture dependence**: at least two native features are essential to the idea.
 - **Physical integration**: linework obeys surfaces, perspective, occlusion, and visual weight.
 - **Surprise**: the event contains a specific visual turn rather than a generic activity.
@@ -89,6 +94,7 @@ Score each category from 0-2. Require at least 8/10 and no zero:
 Also reject and revise when:
 
 - The main event disappears at thumbnail size.
+- The event area is visible, but the primary actor's body, action, or key prop cannot be distinguished.
 - Removing the photo background would leave a complete, generic doodle scene.
 - The idea is only a character standing, climbing, pointing, pulling a rope, or planting a flag.
 - A straight arrow or line becomes the most visible added element.
@@ -125,6 +131,7 @@ When returning structured planning output, use:
   "character_relation": "How the added figures physically interact with the source.",
   "reveal_point": "One smaller supporting clue.",
   "difference_note": "Why the result is visibly different at thumbnail size.",
+  "readability_note": "Why the main actor, action, and prop remain clear at 512px without zooming.",
   "quality_score": {
     "source_preservation": 2,
     "visible_difference": 2,

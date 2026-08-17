@@ -1,7 +1,7 @@
 {
-  "skill_id": "TextureBlindBoxDraw_v1.3",
+  "skill_id": "TextureBlindBoxDraw_v1.3.1",
   "skill_name": "纹理顺势盲盒创意绘画",
-  "version": "1.3",
+  "version": "1.3.1",
   "author": "Custom",
   "description": "接收实拍照片，让至少两处原生纹理共同形成一眼可见、有惊喜转折的局部涂鸦事件；默认生成图与原图有明显差异，同时保留至少70%实拍信息并禁止全图重绘",
   "type": "image_augment",
