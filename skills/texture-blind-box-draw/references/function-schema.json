@@ -41,6 +41,16 @@
           "description": "强制强度档位，null为自动使用默认2档。",
           "default": null
         },
+        "force_visibility": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 5,
+          "description": "强制可见度档位，null为自动使用默认3档；用户反馈太小或不明显时建议4档。",
+          "default": null
+        },
         "creative_theme": {
           "type": "string",
           "enum": [
