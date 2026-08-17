@@ -2,39 +2,64 @@
   "type": "function",
   "function": {
     "name": "TextureBlindBoxDraw",
-    "description": "纹理顺势盲盒创意绘画，对用户实拍图片做局部简笔涂鸦增量，保留原图70%以上实拍信息，不做全盘重绘。",
+    "description": "保留至少70%实拍原图，通过两处以上原生纹理构成明显、有惊喜、有视觉转折的局部盲盒涂鸦事件。默认生成结果在缩略图中也应与原图有清楚差异。",
     "parameters": {
       "type": "object",
-      "required": ["user_image_ref"],
+      "required": [
+        "user_image_ref"
+      ],
       "properties": {
         "user_image_ref": {
           "type": "string",
-          "description": "用户上传图片的引用标识"
+          "description": "用户上传实拍图片的引用标识。"
         },
         "user_text_prompt": {
           "type": "string",
-          "description": "用户附加的创意文字指令，可为空字符串",
+          "description": "用户附加的创意文字指令，可为空字符串。",
           "default": ""
         },
         "force_mode": {
           "type": "string",
-          "enum": ["","CrackTrace","ObjectAnthropo","MicroWorld","SymbolDecorate","CustomFree"],
-          "description": "强制指定工作模式，空字符串代表自动识别",
+          "enum": [
+            "",
+            "CrackTrace",
+            "ObjectAnthropo",
+            "MicroWorld",
+            "SymbolDecorate",
+            "CustomFree"
+          ],
+          "description": "强制指定工作模式，空字符串代表自动识别。",
           "default": ""
         },
         "force_intensity": {
-          "type": ["integer","null"],
-          "minimum":1,
-          "maximum":5,
-          "description":"强制强度档位，null为自动使用默认2档",
-          "default":null
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 5,
+          "description": "强制视觉范围档位，null为自动使用默认3档。",
+          "default": null
         },
         "force_visibility": {
-          "type": ["integer","null"],
-          "minimum":1,
-          "maximum":5,
-          "description":"强制可见度档位，null为自动使用默认3档；用户反馈太小或不明显时建议4档",
-          "default":null
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 5,
+          "description": "强制可见度档位，null为自动使用默认4档。",
+          "default": null
+        },
+        "surprise_level": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 5,
+          "description": "强制惊喜度，null为默认4档语义转折；1-2档属于低创意结果，应重新构思而不是直接生成。",
+          "default": null
         },
         "creative_theme": {
           "type": "string",
@@ -42,18 +67,19 @@
             "",
             "healing-daily-life",
             "urban-archaeology",
-            "micro-adventure",
             "absurd-humor",
             "mystery-discovery",
             "hidden-fairy-tale",
-            "minimal-art"
+            "visual-misdirection",
+            "impossible-task",
+            "cause-and-effect"
           ],
-          "description": "隐藏事件的创意主题，空字符串代表根据照片自动选择",
+          "description": "事件的创意主题，空字符串代表根据照片自动选择。",
           "default": ""
         },
         "event_seed": {
           "type": "string",
-          "description": "用户指定的隐藏事件、动作或剧情线索，可为空字符串",
+          "description": "用户指定的事件、动作、笑点或剧情线索，可为空字符串。",
           "default": ""
         }
       }

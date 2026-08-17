@@ -1,87 +1,98 @@
 ---
 name: texture-blind-box-draw
-description: Use when Codex needs to edit or prompt-edit a user-uploaded real photo with readable localized blind-box style black-line doodles that discover one hidden micro-event from existing cracks, scratches, shadows, reflections, stains, object contours, color blocks, or empty corners while preserving at least 70% of the original photo. Trigger for requests about 局部简笔涂鸦, 纹理顺势, 盲盒创意绘画, hidden scenes, object anthropomorphism, micro-world corner doodles, or photo inpainting that must avoid full-image illustration, anime restyling, object replacement, major scene changes, or doodles that are too tiny to notice.
+description: Use when Codex needs to visibly transform a user-uploaded real photo with an obvious, surprising, localized blind-box doodle event built from existing cracks, shadows, reflections, stains, object contours, color blocks, or negative space while preserving at least 70% of the original photo. Trigger for 局部简笔涂鸦, 纹理顺势, 盲盒创意绘画, hidden scenes, object anthropomorphism, micro-world photo edits, or image inpainting that should feel clearly different from the source without becoming a full illustration, anime restyle, object replacement, or barely visible annotation.
 ---
 
 # Texture Blind Box Draw
 
-## Overview
+## Goal
 
-Transform a real user-supplied photo by adding small black-line doodles that look discovered inside the original scene. Preserve the photograph as the base image, keep original subjects, lighting, texture, noise, and material intact, and only add localized doodle details.
+Turn a real user photo into an unmistakably more imaginative image. Preserve the photograph as the base, but make the added event obvious enough that the edited result never feels unchanged.
 
-Use image editing or local inpainting tools only after a source image exists. Do not use this skill to generate a new image from text alone.
+Use image editing or local inpainting only after a source image exists. Do not generate a replacement scene from text alone.
 
 ## Core Rules
 
-- Preserve at least 70% of the original real-photo information in every output.
-- Keep original composition, camera angle, lighting, noise, grain, color, material, and core object shapes unchanged.
-- Add only small black thin-line doodles, as if drawn with a marker on the photographed surface.
-- Treat doodles as secondary details; never let them take over the subject or visual center.
-- Create one coherent hidden event per image, not a random collection of stickers.
-- Anchor the event to one visible photo clue and explain the clue in the analysis.
-- Make the event readable on a normal phone screen and discoverable on a second look: use scale, partial occlusion, continuation of a line, or a tiny prop instead of a large character.
-- Prefer action and relationships over isolated facial features. A face may be an accent, never the whole idea.
-- Use one primary character or 1-3 tiny participants. Avoid crowd scenes unless the user explicitly asks for them.
-- Default to visibility level 3. The main doodle cluster must be visible at 512px thumbnail size, not only at full zoom.
-- For a 1024px image, make the primary event cluster roughly 90-160px on its longest side at visibility level 3; scale proportionally for other sizes.
-- Use a medium black marker stroke for the primary event: about 3-5px at 1024px output, with slightly thinner supporting details.
-- On dark, glossy, watery, or busy texture, add a very narrow light reserve/halo or place the main linework on a clearer high-contrast surface. Do not let black lines disappear into the background.
-- Do not satisfy the skill by adding only small eyes and smile mouths. Add at least one action line, tool, route, sign, flag, footprint, door, rope, or other prop that makes the event legible.
-- Default to intensity level 2. Automatically stay within levels 1-4. Use level 5 only after explicit user confirmation.
-- Use the prompt fragments in [mode-prompts.json](references/mode-prompts.json) and the event library in [creative-hooks.json](references/creative-hooks.json) when composing an edit prompt.
+- Preserve at least 70% of the original photographic information, including composition, camera angle, lighting, grain, material, and core object shapes.
+- Create a visible creative transformation, not a timid annotation. At 512px wide, a viewer must notice the changed region within 1 second and understand the event or visual joke within about 3 seconds.
+- Preserve the photo globally and edit locally. Keep the actual linework sparse, but let the event's visual footprint occupy roughly 15-30% of the frame by using real objects and textures as part of the event.
+- Use black marker linework as the primary visual language. On a busy or dark surface, permit a narrow white separation edge or one source-sampled accent on a single small prop; keep accent fill below 3% of the frame.
+- Build one focal event plus 1-2 supporting clues. Keep them compositionally connected instead of scattering unrelated doodles.
+- Borrow at least two native photo features. The event must depend on both, so it cannot be pasted unchanged onto another image.
+- Make the real photo provide most of the character, stage, or prop. Add only the lines needed to complete the alternate reading.
+- Prefer semantic transformation and visual punchlines over generic miniature activity. Ask what the texture can be mistaken for, then reveal that alternate identity.
+- Physically integrate every character: make it stand on an edge, follow perspective, hold a native line, react to wind or water, or become partially occluded by a real object.
+- Reject bare arrows, isolated stick figures, smiley faces, generic climbing routes, flags as the only payoff, and long ropes across empty space. These are annotations, not finished ideas.
+- Default to intensity 3, visibility 4, and surprise 4. Reduce them only when the user explicitly asks for subtlety.
+- For a 1024px image at visibility 4, make the primary event cluster about 180-320px on its longest side with a 5-8px main stroke. Scale proportionally for other sizes.
+- Use [mode-prompts.json](references/mode-prompts.json) to compose edit prompts and [creative-hooks.json](references/creative-hooks.json) to avoid repeated ideas.
 
-## Hidden Event Engine
+## Surprise Engine
 
-Build the creative idea in this order:
+Build the concept in this order:
 
-1. **Photo clue**: identify one native visual feature such as a crack, shadow, reflection, stain, fold, wood grain, wire, steam trail, food arrangement, or empty gap.
-2. **Event**: decide what tiny thing is happening there. Prefer a verb: repairing, mapping, climbing, delivering, hiding, waiting, excavating, performing, guarding, or escaping.
-3. **Relationship**: connect the tiny event to the photographed object or surface. The doodle must look caused by, supported by, or constrained by the real feature.
-4. **Reveal point**: add one tiny clue that makes the scene rewarding to inspect, such as a route line, tool, footprint, sign, shadow mismatch, miniature door, or unfinished task.
-5. **Theme**: choose a quiet emotional direction such as healing daily life, urban archaeology, micro-adventure, absurd humor, mystery discovery, hidden fairy tale, or minimal art.
+1. **Two source clues**: select two visually connected native features, such as a leaf plus ripple, food curve plus crumbs, shadow plus doorway, or steam plus cup rim.
+2. **Alternate reading**: decide what those features could become together. Let the photo supply most of the illusion.
+3. **Visual punchline**: add a specific turn, consequence, failure, misunderstanding, rescue, exchange, or impossible task. Do not stop at "tiny people are here."
+4. **Physical integration**: make poses, tools, occlusion, scale, and direction obey the photographed surface.
+5. **Composition**: create one clear focal cluster and a smaller echo clue that leads the eye back to it.
+6. **Reveal**: keep one rewarding detail for closer inspection without hiding the main event.
 
-Do not expose every idea equally. Let the main event be readable, while one supporting clue remains subtle.
+Target a semantic transformation: the first glance notices the edit, while the second glance realizes why that edit could only happen in this particular photo.
+
+## Creative Ladder
+
+- Level 1 - decoration: random symbols or faces. Reject.
+- Level 2 - annotation: arrows, labels, or floating stick figures. Reject.
+- Level 3 - micro-scene: a readable action connected to the photo. Minimum acceptable result.
+- Level 4 - semantic surprise: native photo features become essential characters, props, or consequences. Default target.
+- Level 5 - full restyle: the photo becomes an illustration. Reject.
 
 ## Workflow
 
-1. Verify that the user supplied a real source image. If no image is present, ask for one.
-2. Analyze the photo for: native cracks, scratches, seams, shadows, reflections, stains, folds, wood grain, steam, wires, object contours, anthropomorphic objects, color blocks, and unused corners. Record the strongest visual clue.
-3. Apply any user override first. If no override exists, select the strongest matching mode:
-   - `CrackTrace`: use when cracks, scratches, seams, or broken lines can become character contours.
-   - `ObjectAnthropo`: use when food, stones, fruit, tools, or other objects can receive tiny facial features while keeping their shape unchanged.
-   - `MicroWorld`: use when corners, edges, gaps, or blank space can hold very small people or props.
-   - `SymbolDecorate`: use when the user asks for no living characters, more restraint, or decorative atmosphere only.
-   - `CustomFree`: use when the user specifies a custom doodle idea; still enforce every preservation rule.
-4. Choose one theme and one hidden event. If the user did not specify a theme, select the theme that best matches the photo's mood. Generate one primary action and at most two supporting micro-details.
-5. Choose visibility:
-   - Level 1: whisper-small, only for users who explicitly ask for barely visible details.
-   - Level 2: subtle but readable; use only on clean, bright surfaces.
-   - Level 3: default; readable in a 512px preview with a clear main event.
-   - Level 4: poster-readable; use when the user says "不明显", "太小", "看不出来", or when the background is dark/busy.
-   - Level 5: bold but still local; require explicit confirmation because it becomes a stronger visual intervention.
-6. Choose an intensity:
-   - Level 1: no more than 5% doodle coverage, 1-2 tiny details.
-   - Level 2: 5-15% coverage, default, light and natural.
-   - Level 3: 15-25% coverage, more story and multiple doodles.
-   - Level 4: 25-30% coverage, busy but still subordinate to the photo.
-   - Level 5: exactly up to 30% coverage and only after explicit user confirmation.
-7. Compose the edit prompt by joining the global positive fragment, the selected mode fragment, the hidden-event instruction, the visibility instruction, the theme, any user-specific creative request, and the global negative fragment.
-8. Run the image edit or provide the composed prompt, depending on the available tools and the user's request.
-9. Briefly tell the user which mode, theme, intensity, and visibility were used, and describe the hidden event without over-explaining every visual secret.
+1. Verify that the user supplied a real source photo. If not, ask for one.
+2. Identify 3-5 useful native clues, then choose the strongest connected pair.
+3. Apply a user override when present. Otherwise select:
+   - `CrackTrace` for cracks, scratches, seams, and broken lines.
+   - `ObjectAnthropo` for food, stones, fruit, tools, and shaped objects.
+   - `MicroWorld` for edges, gaps, surfaces, and negative space that can support a clear event.
+   - `SymbolDecorate` only when the user explicitly requests no living characters.
+   - `CustomFree` when the user provides a specific idea.
+4. Generate three short candidate concepts with different surprise mechanics. Reject any concept that could move unchanged to an unrelated photo. Select the strongest remaining one.
+5. Use surprise level 4 by default. Make the source clues carry the premise and add one clear visual punchline.
+6. Use visibility level 4 by default:
+   - Level 1: barely visible; explicit user request only.
+   - Level 2: subtle; clean, bright backgrounds only.
+   - Level 3: readable, with a 130-220px main cluster at 1024px.
+   - Level 4: obvious but local, with a 180-320px main cluster at 1024px.
+   - Level 5: bold, with a 260-380px main cluster; require explicit confirmation.
+7. Use intensity level 3 by default:
+   - Level 1: under 8% visual footprint, one restrained detail.
+   - Level 2: 8-15% visual footprint, one simple event.
+   - Level 3: 15-25% visual footprint, one focal event plus supporting evidence.
+   - Level 4: 25-30% visual footprint, stronger staging while the photo remains dominant.
+   - Level 5: exactly up to 30%; require explicit confirmation.
+8. Compose the edit prompt from the global prompt, selected mode, surprise instruction, visibility instruction, source clues, visual punchline, and negative prompt.
+9. Edit only the planned regions. Do not redraw untouched parts of the source.
+10. Run the quality gate. If it fails, redesign the concept before returning the image.
 
-## Creative Quality Check
+## Quality Gate
 
-Before finalizing, verify:
+Score each category from 0-2. Require at least 8/10 and no zero:
 
-- The event could not exist without the chosen photo clue.
-- The event has an action, not only a face or decorative icon.
-- The original subject remains the visual anchor.
-- The first glance reads as a real photo; the second glance reveals the event.
-- The added linework has a consistent scale, stroke weight, and black-marker language.
-- The event is specific enough to feel authored, but small enough to feel discovered.
-- The main event remains recognizable when the image is downscaled to 512px wide.
-- On complex backgrounds, the main lines have enough contrast to separate from texture, water ripples, shadows, or glossy reflections.
-- If the output looks like only scattered tiny smiley faces, revise toward one larger action scene.
+- **Source preservation**: the result remains recognizably the same photograph.
+- **Visible difference**: the edit is immediately noticeable at 512px.
+- **Texture dependence**: at least two native features are essential to the idea.
+- **Physical integration**: linework obeys surfaces, perspective, occlusion, and visual weight.
+- **Surprise**: the event contains a specific visual turn rather than a generic activity.
+
+Also reject and revise when:
+
+- The main event disappears at thumbnail size.
+- Removing the photo background would leave a complete, generic doodle scene.
+- The idea is only a character standing, climbing, pointing, pulling a rope, or planting a flag.
+- A straight arrow or line becomes the most visible added element.
+- The output redraws the whole photo, changes the main object's identity, or turns the source into an illustration.
 
 ## Forbidden Output
 
@@ -90,10 +101,10 @@ Set `forbidden_trigger=true` or refuse the specific edit when the user asks to:
 - Convert the whole photo into an illustration, anime image, painting, or fully redrawn style.
 - Change the main object's shape, material, color, identity, or position.
 - Replace original objects or generate a new scene.
-- Remove photographic noise, stains, scratches, blemishes, dust, or other real-photo traces.
-- Add large characters, thick paint, color-heavy doodles, 3D render elements, or anything covering more than 30% of the image.
+- Remove photographic noise, stains, scratches, blemishes, dust, or other source traces.
+- Cover more than 30% of the frame with newly generated opaque artwork.
 
-If the user insists on crossing these limits, say: "该 Skill 定位是原图局部增量涂鸦，不支持全盘重绘。如果需要完整插画效果，请使用普通 AI 图像生成。"
+If the user insists on crossing these limits, say: "该 Skill 定位是保留原图的局部创意改造，不支持全盘重绘。如果需要完整插画效果，请使用普通 AI 图像生成。"
 
 ## Response Shape
 
@@ -102,22 +113,33 @@ When returning structured planning output, use:
 ```json
 {
   "active_mode": "ObjectAnthropo",
-  "intensity_level": 2,
-  "visibility_level": 3,
+  "intensity_level": 3,
+  "visibility_level": 4,
+  "surprise_level": 4,
   "analysis_note": "Short description of usable photo features.",
-  "creative_theme": "micro-adventure",
-  "hidden_event": "Tiny climbers are using a food texture as a mountain route.",
-  "texture_evidence": "The folded surface and a dark edge create a natural climbing path.",
-  "character_relation": "The characters follow and depend on the photographed texture.",
-  "reveal_point": "A tiny flag and unfinished rope appear only near the edge of the texture.",
-  "visibility_note": "The main event is readable in a 512px preview; supporting details remain smaller.",
+  "source_clues": ["First native feature", "Second native feature"],
+  "creative_theme": "absurd-humor",
+  "hidden_event": "A specific localized event.",
+  "visual_punchline": "The alternate reading or surprising consequence.",
+  "texture_evidence": "Why the event depends on this exact photograph.",
+  "character_relation": "How the added figures physically interact with the source.",
+  "reveal_point": "One smaller supporting clue.",
+  "difference_note": "Why the result is visibly different at thumbnail size.",
+  "quality_score": {
+    "source_preservation": 2,
+    "visible_difference": 2,
+    "texture_dependence": 2,
+    "physical_integration": 2,
+    "surprise": 2,
+    "total": 10
+  },
   "prompt_set": {
-    "positive": "Global positive prompt plus mode prompt plus user-specific instruction.",
+    "positive": "Complete local edit prompt.",
     "negative": "Global negative prompt."
   },
-  "suggest_user_msg": "Short natural-language explanation for the user.",
+  "suggest_user_msg": "Short natural-language explanation.",
   "forbidden_trigger": false
 }
 ```
 
-Use [function-schema.json](references/function-schema.json) only when a function/tool schema is needed. Use [example-output.json](examples/example-output.json) as a compact output example.
+Use [function-schema.json](references/function-schema.json) when a function schema is needed. Use [example-output.json](examples/example-output.json) as the compact output example.
